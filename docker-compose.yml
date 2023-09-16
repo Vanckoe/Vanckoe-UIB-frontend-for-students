@@ -1,13 +1,12 @@
-version: '3'
+version: '3.4'
 
 services:
-
-  app:
+  frontendvue:
+    image: frontendvue
     build:
       context: .
-      dockerfile: _docker/Dockerfile
-    volumes:
-      - ./:/app
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
     ports:
-      - "8081:8081"
-    container_name: front_app
+      - 3000:3000
